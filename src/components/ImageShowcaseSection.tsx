@@ -1,5 +1,6 @@
 
 import React from "react";
+import umiDataCollectionExpert from "@/assets/umi-data-collection-expert.jpg";
 
 const ImageShowcaseSection = () => {
   return (
@@ -18,8 +19,8 @@ const ImageShowcaseSection = () => {
         <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant mx-auto max-w-2xl animate-on-scroll">
           <div className="w-full">
             <img 
-              src="/robotics-lab-compact.png" 
-              alt="Professional robotics data collection setup with robotic arm and sensors" 
+              src={umiDataCollectionExpert} 
+              alt="Expert operator collecting robot training data using UMI system in professional laboratory" 
               className="w-full h-auto object-cover"
             />
           </div>
