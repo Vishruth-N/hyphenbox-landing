@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "../lib/supabase";
 
 const DataRequirementsForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -33,7 +35,7 @@ const DataRequirementsForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Simple validation
@@ -42,22 +44,68 @@ const DataRequirementsForm = () => {
       return;
     }
 
-    // Demo form submission
-    toast.success("Your data requirements have been submitted! We'll get back to you within 24 hours.");
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      fullName: "",
-      email: "",
-      company: "",
-      roleTitle: "",
-      dataType: "",
-      dataAmount: "",
-      timeline: "",
-      hardwareSetup: [],
-      additionalHardware: "",
-      budgetRange: ""
-    });
+    try {
+      // Prepare data for Supabase (convert camelCase to snake_case)
+      const dataToSubmit = {
+        full_name: formData.fullName,
+        email: formData.email,
+        company: formData.company,
+        role_title: formData.roleTitle || null,
+        data_type: formData.dataType || null,
+        data_amount: formData.dataAmount || null,
+        timeline: formData.timeline || null,
+        hardware_setup: formData.hardwareSetup.length > 0 ? formData.hardwareSetup : null,
+        additional_hardware: formData.additionalHardware || null,
+        budget_range: formData.budgetRange || null
+      };
+
+      // Submit to Supabase
+      const { data, error } = await supabase
+        .from('data_requirements')
+        .insert([dataToSubmit])
+        .select()
+        .single();
+
+      if (error) {
+        console.error('Supabase error:', error);
+        
+        // Check if it's a configuration error
+        if (error.message.includes('relation') || error.message.includes('does not exist')) {
+          toast.error("Database configuration error. Please ensure the table is created in Supabase.");
+        } else if (error.message.includes('Failed to fetch')) {
+          toast.error("Connection error. Please check your Supabase configuration.");
+        } else {
+          toast.error("Failed to submit form. Please try again.");
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Success
+      toast.success("Your data requirements have been submitted! We'll get back to you within 24 hours.");
+      
+      // Reset form
+      setFormData({
+        fullName: "",
+        email: "",
+        company: "",
+        roleTitle: "",
+        dataType: "",
+        dataAmount: "",
+        timeline: "",
+        hardwareSetup: [],
+        additionalHardware: "",
+        budgetRange: ""
+      });
+      
+      setIsSubmitting(false);
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      toast.error("An unexpected error occurred. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   const hardwareOptions = [
@@ -236,9 +284,14 @@ const DataRequirementsForm = () => {
           <div>
             <button 
               type="submit" 
-              className="w-full px-6 py-3 bg-pulse-500 hover:bg-pulse-600 text-white font-medium rounded-full transition-colors duration-300"
+              disabled={isSubmitting}
+              className={`w-full px-6 py-3 text-white font-medium rounded-full transition-colors duration-300 ${
+                isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed' 
+                  : 'bg-pulse-500 hover:bg-pulse-600'
+              }`}
             >
-              Submit
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
           </div>
         </form>
