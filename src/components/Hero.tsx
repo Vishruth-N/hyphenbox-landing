@@ -161,15 +161,12 @@ const Hero = () => {
             ) : (
               <>
               <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
-              <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                <img 
-                  ref={imageRef} 
-                  src="/hyphenbox-logo.png" 
-                  alt="Hyphenbox Logo" 
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-out" 
-                  style={{ transformStyle: 'preserve-3d' }} 
-                />
-                <div className="absolute inset-0" style={{ backgroundImage: 'url("/hero-image.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', mixBlendMode: 'overlay', opacity: 0.5 }}></div>
+              <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl bg-gradient-to-br from-pulse-500/20 to-pulse-600/30 flex items-center justify-center min-h-[300px]">
+                <div className="text-center p-8">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Hyphenbox</h3>
+                  <p className="text-gray-600">Professional Robotics Data Collection</p>
+                </div>
+                <div className="absolute inset-0" style={{ backgroundImage: 'url("/hero-image.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', mixBlendMode: 'overlay', opacity: 0.3 }}></div>
               </div>
               </>
             )}
