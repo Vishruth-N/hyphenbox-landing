@@ -15,10 +15,10 @@ const ImageShowcaseSection = () => {
           </p>
         </div>
         
-        <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant mx-auto max-w-4xl animate-on-scroll">
+        <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant mx-auto max-w-2xl animate-on-scroll">
           <div className="w-full">
             <img 
-              src="/robotics-lab-setup.png" 
+              src="/robotics-lab-compact.png" 
               alt="Professional robotics data collection setup with robotic arm and sensors" 
               className="w-full h-auto object-cover"
             />
