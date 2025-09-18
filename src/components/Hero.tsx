@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import LottieAnimation from "./LottieAnimation";
-import robotDataAcquisitionHero from "@/assets/robot-data-acquisition-hero.jpg";
+import robotDataAcquisitionHero from "@/assets/robot-data-acquisition-hero-orange.jpg";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
