@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS public.data_requirements (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     full_name TEXT NOT NULL,
     email TEXT NOT NULL,
+    phone TEXT NOT NULL,
     company TEXT NOT NULL,
     role_title TEXT,
     data_type TEXT,

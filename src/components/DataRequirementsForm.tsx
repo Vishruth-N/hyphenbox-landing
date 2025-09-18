@@ -7,6 +7,7 @@ const DataRequirementsForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    phone: "",
     company: "",
     roleTitle: "",
     dataType: "",
@@ -39,7 +40,7 @@ const DataRequirementsForm = () => {
     e.preventDefault();
 
     // Simple validation
-    if (!formData.fullName || !formData.email || !formData.company) {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.company) {
       toast.error("Please fill in all required fields");
       return;
     }
@@ -51,6 +52,7 @@ const DataRequirementsForm = () => {
       const dataToSubmit = {
         full_name: formData.fullName,
         email: formData.email,
+        phone: formData.phone,
         company: formData.company,
         role_title: formData.roleTitle || null,
         data_type: formData.dataType || null,
@@ -90,6 +92,7 @@ const DataRequirementsForm = () => {
       setFormData({
         fullName: "",
         email: "",
+        phone: "",
         company: "",
         roleTitle: "",
         dataType: "",
@@ -166,6 +169,18 @@ const DataRequirementsForm = () => {
                 value={formData.email} 
                 onChange={handleChange} 
                 placeholder="Email address *" 
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
+                required 
+              />
+            </div>
+            
+            <div>
+              <input 
+                type="tel" 
+                name="phone" 
+                value={formData.phone} 
+                onChange={handleChange} 
+                placeholder="Phone number *" 
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
                 required 
               />

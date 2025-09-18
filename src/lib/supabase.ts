@@ -5,6 +5,7 @@ export interface DataRequirement {
   id?: string
   full_name: string
   email: string
+  phone: string
   company: string
   role_title?: string
   data_type?: string

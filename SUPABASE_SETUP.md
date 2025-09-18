@@ -39,6 +39,7 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 | id | uuid | gen_random_uuid() | Primary Key |
 | full_name | text | - | Not Null |
 | email | text | - | Not Null |
+| phone | text | - | Not Null |
 | company | text | - | Not Null |
 | role_title | text | - | Nullable |
 | data_type | text | - | Nullable |
