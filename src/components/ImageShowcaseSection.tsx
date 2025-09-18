@@ -18,7 +18,7 @@ const ImageShowcaseSection = () => {
             <img src={umiDataCollectionExpert} alt="Expert operator collecting robot training data using UMI system in professional laboratory" className="w-full h-auto object-cover" />
           </div>
           <div className="bg-white p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Data Collection</h3>
+            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Data Acquisition</h3>
             <p className="text-gray-700 text-sm sm:text-base">
               Our professional setup enables precise data collection across manipulation, 
               navigation, and custom robotics tasks. Every demonstration is captured with 
