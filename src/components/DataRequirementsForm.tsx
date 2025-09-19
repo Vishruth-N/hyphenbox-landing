@@ -122,7 +122,6 @@ const DataRequirementsForm = () => {
     "Custom Manipulator",
     "Mobile Robot",
     "Depth Cameras",
-
     "Other (please specify)"
   ];
 
