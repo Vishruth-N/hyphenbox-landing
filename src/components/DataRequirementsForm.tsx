@@ -113,12 +113,16 @@ const DataRequirementsForm = () => {
 
   const hardwareOptions = [
     "UMI",
-    "ALOHA", 
+    "ALOHA",
+    "Webcam",
+    "Smartphone",
+    "Computer (Keyboard and Mouse)",
+    "Space Mouse",
+    "VR",
     "Custom Manipulator",
     "Mobile Robot",
     "Depth Cameras",
-    "Motion Capture",
-    "VR Controllers",
+
     "Other (please specify)"
   ];
 
