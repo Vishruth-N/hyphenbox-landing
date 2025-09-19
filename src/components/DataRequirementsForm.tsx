@@ -151,60 +151,80 @@ const DataRequirementsForm = () => {
             <h3 className="text-lg font-semibold text-gray-900">Personal Information</h3>
             
             <div>
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                Name *
+              </label>
               <input 
                 type="text" 
+                id="fullName"
                 name="fullName" 
                 value={formData.fullName} 
                 onChange={handleChange} 
-                placeholder="Name *" 
+                placeholder="John Smith" 
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
                 required 
               />
             </div>
             
             <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email address *
+              </label>
               <input 
                 type="email" 
+                id="email"
                 name="email" 
                 value={formData.email} 
                 onChange={handleChange} 
-                placeholder="Email address *" 
+                placeholder="john.smith@company.com" 
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
                 required 
               />
             </div>
             
             <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                Phone number *
+              </label>
               <input 
                 type="tel" 
+                id="phone"
                 name="phone" 
                 value={formData.phone} 
                 onChange={handleChange} 
-                placeholder="Phone number *" 
+                placeholder="+1 (555) 123-4567" 
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
                 required 
               />
             </div>
             
             <div>
+              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                Company *
+              </label>
               <input 
                 type="text" 
+                id="company"
                 name="company" 
                 value={formData.company} 
                 onChange={handleChange} 
-                placeholder="Company *" 
+                placeholder="Acme Robotics Inc." 
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
                 required 
               />
             </div>
             
             <div>
+              <label htmlFor="roleTitle" className="block text-sm font-medium text-gray-700 mb-2">
+                Role/Title (optional)
+              </label>
               <input 
                 type="text" 
+                id="roleTitle"
                 name="roleTitle" 
                 value={formData.roleTitle} 
                 onChange={handleChange} 
-                placeholder="Role/Title (optional)" 
+                placeholder="ML Engineer, Robotics Lead, etc." 
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
               />
             </div>
@@ -215,33 +235,45 @@ const DataRequirementsForm = () => {
             <h3 className="text-lg font-semibold text-gray-900">Data Requirements</h3>
             
             <div>
+              <label htmlFor="dataType" className="block text-sm font-medium text-gray-700 mb-2">
+                What type of data do you need?
+              </label>
               <textarea 
+                id="dataType"
                 name="dataType" 
                 value={formData.dataType} 
                 onChange={handleChange} 
-                placeholder="What type of data do you need? E.g., 'Bimanual manipulation data of robots assembling electronics'" 
+                placeholder="E.g., 'Bimanual manipulation data of robots assembling electronics'" 
                 rows={3}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
               />
             </div>
             
             <div>
+              <label htmlFor="dataAmount" className="block text-sm font-medium text-gray-700 mb-2">
+                How much data do you need?
+              </label>
               <textarea 
+                id="dataAmount"
                 name="dataAmount" 
                 value={formData.dataAmount} 
                 onChange={handleChange} 
-                placeholder="How much data do you need? E.g., '5,000 successful demonstrations with diverse object configurations'" 
+                placeholder="E.g., '5,000 successful demonstrations with diverse object configurations'" 
                 rows={3}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
               />
             </div>
             
             <div>
+              <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+                When do you need the data by?
+              </label>
               <textarea 
+                id="timeline"
                 name="timeline" 
                 value={formData.timeline} 
                 onChange={handleChange} 
-                placeholder="When do you need the data by? E.g., 'Within 6 weeks for our next training cycle'" 
+                placeholder="E.g., 'Within 6 weeks for our next training cycle'" 
                 rows={2}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
               />
@@ -269,24 +301,32 @@ const DataRequirementsForm = () => {
             </div>
 
             <div>
+              <label htmlFor="additionalHardware" className="block text-sm font-medium text-gray-700 mb-2">
+                Additional hardware requirements
+              </label>
               <textarea 
+                id="additionalHardware"
                 name="additionalHardware" 
                 value={formData.additionalHardware} 
                 onChange={handleChange} 
-                placeholder="Additional hardware requirements - Describe any specific sensors, tools, or equipment needed" 
+                placeholder="Describe any specific sensors, tools, or equipment needed" 
                 rows={3}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
               />
             </div>
 
             <div>
+              <label htmlFor="budgetRange" className="block text-sm font-medium text-gray-700 mb-2">
+                What's your budget range?
+              </label>
               <select 
+                id="budgetRange"
                 name="budgetRange" 
                 value={formData.budgetRange} 
                 onChange={handleChange} 
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent"
               >
-                <option value="">What's your budget range?</option>
+                <option value="">Select budget range</option>
                 <option value="under-10k">Under $10k</option>
                 <option value="10k-50k">$10k-$50k</option>
                 <option value="50k-100k">$50k-$100k</option>
